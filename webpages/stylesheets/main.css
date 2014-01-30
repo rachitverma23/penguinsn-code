@@ -1,0 +1,36 @@
+ 
+ body {
+	margin: 0 auto ; 
+	padding: 20px ; 
+	background-color: rgb(112, 175, 82);
+}
+
+h1, h2{ 
+	text-align: center; 
+	font-family: Georgia; 
+	color: rgb(219, 76, 76);
+}
+
+
+#container_form { 
+	color: #00FFFF ; 
+	width: 300px;
+	margin: 0 auto ; 
+}
+
+#chat_script {
+	width: 300px ; 
+	height: 150px ;
+	padding: 20px ; 
+}
+
+.chat { 
+	width: 200 px ;
+	text-align: center; 
+	font-size: 190% ; 
+	font-family: Inconsolata ;
+	background-color: #00FFFF; 
+	color: rgb(219, 76, 76);
+}
+
+

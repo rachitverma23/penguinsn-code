@@ -1,0 +1,165 @@
+<!DOCTYPE HTML> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PSN-The Chatroom</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/webpages/stylesheets/bootstrap.min.css" rel="stylesheet">
+<script src="/webpages/stylesheets/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Salsa' rel='stylesheet' type='text/css'>
+<style type="text/css">
+
+ .navbar-wrapper {
+    margin-top: 15px;
+	position:fixed;
+  }
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+.navbar-wrapper .navbar {
+  padding-left:30px;
+  padding-right: 15px
+  }
+  .bg {
+  background: url('/webpages/stylesheets/jumbotronbackground.jpg') no-repeat center center;
+  position:fixed;
+  width: 100%;
+  height:100%; /*same height as jumbotron */
+  top:0;
+  left:0;
+  z-index: -1;
+}
+.jumbotron{
+	height:300px;
+	padding-top:100px;
+	background:transparent;
+	color:#FFF;
+}
+navbar .nav > li > a{
+	color:#FFF
+}
+textarea[rows][placeholder]:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+    border-color: rgba(153,0,0,1);
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
+    outline: 0 none;
+}
+.navbar .nav > li > a {
+	color:#FFF
+}
+.navbar .nav > li > a:hover {
+	background-color:rgba(102,102,102,0.7);
+}
+.navbar-header .navbar-brand {
+	color:#FFF;
+}
+input[type] {
+	width:40%;
+}
+.navbar .nav > li > a:active {
+	background-color: rgba(102,102,102,0.7);
+	box-shadow: inset 1px 1px 2px 2px #000;
+}
+.chattext .chattime{
+	overflow:hidden;
+	word-wrap:break-word;
+}
+
+</style>
+</head>
+
+<body>
+ 
+
+ <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+               <a class="navbar-brand" href="#">PenguinSN</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">Igloo</a></li>
+                <li class="active"><a href="#contact">Iceberg</a></li>
+               <li><a href="#">About</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="bg"></div>
+     <div class="jumbotron">
+      <div class="container">
+        <h1 style="color:#FFF">The Iceberg.</h1>
+        <h3 style="color:#FFF">Welcome to the Iceberg! Have a great time by chatting with other penguins with our new, fast chat rooms</h3>
+       
+      </div>
+    </div>
+    <div class="container"><div id="container_form">
+
+    <form method='POST' action='/' id='chat_enter'>
+
+    <div class="input_username">
+   <h1 style="color:#FFF">Enter Your username here:</h1>
+   <input type="text" class="form-control" placeholder="Username" name="username" />
+    </div>
+<br />
+
+<h1 style="color:#FFF">Enter chat text here:</h1>
+<textarea class="form-control" rows="5" placeholder="Say Something...." id="chat_sript" name="text"></textarea>
+<div class="input_submit"><br />
+<center>
+<button class="btn btn-primary btn-lg" type="submit">Submit</button></center>
+</div>
+</form></div>
+
+<br /><br /><br />
+
+<hr class="featurette-divider">
+<br />
+
+<br />
+<h1 style="color:#FFF">What other penguins are saying.......</h1>
+{% for chat in chat_script %}
+	<div class="panel panel-default chat">
+   <div class="panel-heading">
+<h1 class = "chatuser panel-title">{{chat.user}}:</h1></div><div class="panel-body"><h3 class = "chattext" style="display:inline">{{chat.text}}</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h4 class="chattime text-muted" style="display:inline">{{chat.timestamp}}</h4></div>
+
+<h5> {{chat.points}} </h5>
+	</div>
+	<br> 
+	{%endfor%}
+
+
+ 
+</div>
+
+
+<script src="/webpages/stylesheets/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</body>
+</html>
