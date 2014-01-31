@@ -11,9 +11,24 @@
 <link href='http://fonts.googleapis.com/css?family=Salsa' rel='stylesheet' type='text/css'>
 <style type="text/css">
 
+  .formtext{
+    width: 217px;
+  }
+
+  .text{
+    width: 423px ; 
+    height: 217px ; 
+  }
+
+  .map{
+    position: absolute;
+    right: 100px ; 
+    top: 118px;
+  }
+
  .navbar-wrapper {
     margin-top: 15px;
-	position:fixed;
+	  position:fixed;
   }
 .navbar-wrapper {
   position: absolute;
@@ -113,7 +128,11 @@ input[type] {
      <div class="jumbotron">
       <div class="container">
         <h1 style="color:#FFF">The Iceberg.</h1>
-        <h3 style="color:#FFF">Welcome to the Iceberg! Have a great time by chatting with other penguins with our new, fast chat rooms</h3>
+        <h3 style="color:#FFF">
+        <div class='text'>
+          Welcome to the Iceberg! Have a great time by chatting with other penguins with our new, fast chat rooms
+        </div>
+        </h3>
        
       </div>
     </div>
@@ -143,17 +162,23 @@ input[type] {
 <br />
 <h1 style="color:#FFF">What other penguins are saying.......</h1>
 {% for chat in chat_script %}
-	<div class="panel panel-default chat">
-   <div class="panel-heading">
-<h1 class = "chatuser panel-title">{{chat.user}}:</h1></div><div class="panel-body"><h3 class = "chattext" style="display:inline">{{chat.text}}</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h4 class="chattime text-muted" style="display:inline">{{chat.timestamp}}</h4></div>
+<div class="panel panel-default chat">
+    <div class="panel-heading">
+        <h1 class="chatuser panel-title">
+        <div class='formtext'>
+        {{chat.user}}:
+        </h1>
+    </div>
+    <div class="panel-body">
+        <h3 class="chattext" style="display:inline">{{chat.text}}</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <h4 class="chattime text-muted" style="display:inline">{{chat.timestamp}}</h4>
+</div>
 
 <h5> {{chat.points}} </h5>
 	</div>
 	<br> 
 	{%endfor%}
 
-
- 
 </div>
 
 
@@ -161,5 +186,10 @@ input[type] {
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+{% if img_url %}
+    <img src="{{img_url}}" class='map'>
+{% endif%} 
+
 </body>
 </html>
